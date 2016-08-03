@@ -1,0 +1,170 @@
+%% Copyright (C) 2003-2016 Achim D. Brucker, https://www.brucker.ch
+%%
+%% License:
+%%   This program can be redistributed and/or modified under the terms
+%%   of the LaTeX Project Public License Distributed from CTAN
+%%   archives in directory macros/latex/base/lppl.txt; either
+%%   version 1 of the License, or any later version.
+%%   OR
+%%   The 2-clause BSD-style license.
+\NeedsTeXFormat{LaTeX2e}\relax
+\ProvidesClass{llncsconf}[2006/11/05 v0.2 Achim D. Brucker]
+%
+\RequirePackage{ifthen}
+\RequirePackage{hyperref}
+%
+\newboolean{rcsinfo}
+\newboolean{svninfo}
+\newboolean{submitted}
+\newboolean{intended}
+\newboolean{llncs}
+\newboolean{crop}
+\newboolean{proceedings}
+%
+\DeclareOption{crop}{\setboolean{crop}{true}}
+\DeclareOption{rcsinfo}{\setboolean{rcsinfo}{true}}
+\DeclareOption{svninfo}{\setboolean{svninfo}{true}}
+\DeclareOption{submitted}{\setboolean{submitted}{true}}
+\DeclareOption{intended}{\setboolean{intended}{true}}
+\DeclareOption{llncs}{\setboolean{llncs}{true}}
+\DeclareOption{proceedings}{\setboolean{proceedings}{true}}
+%%%
+\ProcessOptions\relax
+%%
+\AtEndDocument{\label{LastPage}}
+\def\conference#1{\gdef\@conference{#1}}
+\def\llncs#1#2{\gdef\@llncs{#1}\ifthenelse{\boolean{llncs} \OR \boolean{proceedings}}{\setcounter{page}{#2}}{}}
+
+% <crop>
+\ifthenelse{\boolean{crop}}{%
+\pdfpagesattr{/CropBox [92 70 523 736]}% LNCS page: 152x235 mm
+}{}
+% </crop>
+\def\ps@svninfofirst{\let\@mkboth\@gobbletwo\let\@oddhead\@empty\let\@evenhead\@empty
+     \def\@oddfoot{\reset@font\scriptsize
+     \vbox to\z@{\parindent=\z@\vss
+     \textsf{\small Revision: \svnInfoRevision \quad Date: \svnInfoDate
+     \quad Time: \svnInfoTime \quad File: \svnInfoFile\\}}
+     }\let\@evenfoot\@oddfoot}
+\def\ps@svninfo{\let\@mkboth\@gobbletwo
+     \def\@oddfoot{\reset@font\scriptsize
+     \vbox to\z@{\parindent=\z@\vss
+     \textsf{\small Revision: \svnInfoRevision \quad Date: \svnInfoDate
+     \quad Time: \svnInfoTime \quad File: \svnInfoFile\\}}
+     }\let\@evenfoot\@oddfoot}
+%
+\def\ps@rcsinfofirst{\let\@mkboth\@gobbletwo\let\@oddhead\@empty\let\@evenhead\@empty
+     \def\@oddfoot{\reset@font\scriptsize
+     \vbox to\z@{\parindent=\z@\vss
+     \textsf{\small Revision: \rcsInfoRevision \quad Date: \rcsInfoDate
+     \quad Time: \rcsInfoTime \quad File: \rcsInfoFile\\}}
+     }\let\@evenfoot\@oddfoot}
+\def\ps@rcsinfo{\let\@mkboth\@gobbletwo
+     \def\@oddfoot{\reset@font\scriptsize
+     \vbox to\z@{\parindent=\z@\vss
+     \textsf{\small Revision: \rcsInfoRevision \quad Date: \rcsInfoDate
+     \quad Time: \rcsInfoTime \quad File: \rcsInfoFile\\}}
+     }\let\@evenfoot\@oddfoot}
+%
+\def\ps@submitted{\let\@mkboth\@gobbletwo
+     \def\@oddfoot{\reset@font\scriptsize
+          \vbox to\z@{\parindent=\z@\vss
+          Submitted to \@conference, please do \emph{not} distribute.\\
+               \copyright\ \number\year, \@author
+               }}\let\@evenfoot\@oddfoot}
+\def\ps@submittedfirst{\let\@mkboth\@gobbletwo\let\@oddhead\@empty\let\@evenhead\@empty
+     \def\@oddfoot{\reset@font\scriptsize
+          \vbox to\z@{\parindent=\z@\vss
+          Submitted to \@conference, please do \emph{not} distribute.\\
+               \copyright\ \number\year, \@author
+               }}\let\@evenfoot\@oddfoot}
+%
+%
+\def\ps@intended{\let\@mkboth\@gobbletwo
+     \def\@oddfoot{\reset@font\scriptsize
+          \vbox to\z@{\parindent=\z@\vss
+          Intended for submission to \@conference, please do \emph{not} distribute.
+               }}\let\@evenfoot\@oddfoot}
+\def\ps@intendedfirst{\let\@mkboth\@gobbletwo\let\@oddhead\@empty\let\@evenhead\@empty
+     \def\@oddfoot{\reset@font\scriptsize
+          \vbox to\z@{\parindent=\z@\vss
+          Intended for submission to \@conference, please do \emph{not} distribute.
+               }}\let\@evenfoot\@oddfoot}
+%
+\def\ps@llncs{\let\@mkboth\@gobbletwo\let\@oddhead\@empty\let\@evenhead\@empty
+     \def\@oddfoot{\reset@font\scriptsize
+     \vbox to\z@{\parindent=\z@\vss
+     \@llncs
+     \unskip, pp. \thepage--\pageref{LastPage}, \number\year.\\
+     \copyright\ Springer-Verlag Berlin Heidelberg \number\year
+     }}\let\@evenfoot\@oddfoot}
+
+\def\ps@proceedings{\let\@mkboth\@gobbletwo\let\@oddhead\@empty\let\@evenhead\@empty
+     \def\@oddfoot{\reset@font\scriptsize
+     \vbox to\z@{\parindent=\z@\vss
+     \@llncs
+     \unskip, pp. \thepage--\pageref{LastPage}, \number\year.
+     }}\let\@evenfoot\@oddfoot}
+
+% <rcsinfo>
+\ifthenelse{\boolean{rcsinfo}}{%
+\RequirePackage{rcsinfo}
+\pagestyle{rcsinfo}%
+\let\old@mkttl=\maketitle%
+\def\maketitle{\old@mkttl\thispagestyle{rcsinfofirst}}%
+}{}
+% </rcsinfo>
+% <svninfo>
+\ifthenelse{\boolean{svninfo}}{%
+\RequirePackage{svninfo}
+\RequirePackage{eso-pic}
+   \AddToShipoutPicture{%
+     \setlength{\unitlength}{1mm}%
+     \put(38,28){\tiny\svnInfoFile\quad\svnInfoRevision\quad\svnInfoDate%
+     \quad\svnInfoTime\quad\svnInfoOwner}%
+   }%
+%\pagestyle{svninfo}%
+%\let\old@mkttl=\maketitle%
+%\def\maketitle{\old@mkttl\thispagestyle{svninfofirst}}%
+}{}
+% </svninfo>
+% <submitted>
+\ifthenelse{\boolean{intended}}{%
+% \pagestyle{intended}%
+\let\old@mkttl=\maketitle%
+\def\maketitle{\old@mkttl\thispagestyle{intendedfirst}}%
+}{}
+\ifthenelse{\boolean{submitted}}{%
+\pagestyle{submitted}%
+\let\old@mkttl=\maketitle%
+\def\maketitle{\old@mkttl\thispagestyle{submittedfirst}}%
+}{}
+% </submitted>
+% <llncs>
+\ifthenelse{\boolean{llncs}}{%
+\let\old@mkttl=\maketitle%
+\def\maketitle{\old@mkttl\thispagestyle{llncs}}%
+}{}
+% </llncs>
+\ifthenelse{\boolean{proceedings}}{%
+\let\old@mkttl=\maketitle%
+\def\maketitle{\old@mkttl\thispagestyle{proceedings}}%
+}{}
+
+\setcounter{tocdepth}{2}
+\renewcommand{\clearheadinfo}{}
+\hypersetup{%
+  draft         = false,
+  bookmarksopen = true,
+  bookmarksnumbered= true,
+  pdfauthor     = {\@author},
+  pdftitle      = {\@title},
+}
+%\renewcommand{\chapter}[1]{#1}
+%
+
+\providecommand*{\toclevel@title}{0}
+\providecommand*{\toclevel@author}{0}
+
+
+\endinput
