@@ -40,8 +40,3 @@ Moreover, the package requires two commands to be executed:
 ## License
 This project is dual-licensed under a 2-clause BSD-style license and/or 
 the LPPL version 1 or any later version. 
-
-
-\conference{International Conference on \LaTeX-Hacks}
-\llncs{Anonymous et al. (eds). \emph{Proceedings of the International
-       Conference on \LaTeX-Hacks}, LNCS~-42. Some Publisher, 2016.}{0042}
