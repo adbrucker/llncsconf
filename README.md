@@ -8,7 +8,7 @@ LaTeX file.
 
 ## Usage
 In a LaTeX file that uses Springer's `llncs` class, just add
-```
+```tex
     \usepackage{llncsconf}
 ```
 to use the style. The package supports the following options:
