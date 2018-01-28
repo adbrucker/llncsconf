@@ -34,6 +34,8 @@
 \AtEndDocument{\label{LastPage}}
 \def\conference#1{\gdef\@conference{#1}}
 \def\llncs#1#2{\gdef\@llncs{#1}\ifthenelse{\boolean{llncs} \OR \boolean{proceedings}}{\setcounter{page}{#2}}{}}
+\gdef\@llncsdoi{UNKNOWN}
+\def\llncsdoi#1{\gdef\@llncsdoi{#1}{}}
 
 % <crop>
 \ifthenelse{\boolean{crop}}{%
@@ -96,7 +98,7 @@
      \vbox to\z@{\parindent=\z@\vss
      \@llncs
      \unskip, pp. \thepage--\pageref{LastPage}, \number\year.\\
-     \copyright\ Springer-Verlag Berlin Heidelberg \number\year
+     The final publication is available at Springer via \url{https://doi.org/\@llncsdoi}.
      }}\let\@evenfoot\@oddfoot}
 
 \def\ps@proceedings{\let\@mkboth\@gobbletwo\let\@oddhead\@empty\let\@evenhead\@empty
