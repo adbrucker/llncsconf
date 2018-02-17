@@ -15,6 +15,7 @@
 %
 \newboolean{rcsinfo}
 \newboolean{svninfo}
+\newboolean{accepted}
 \newboolean{submitted}
 \newboolean{intended}
 \newboolean{llncs}
@@ -24,6 +25,7 @@
 \DeclareOption{crop}{\setboolean{crop}{true}}
 \DeclareOption{rcsinfo}{\setboolean{rcsinfo}{true}}
 \DeclareOption{svninfo}{\setboolean{svninfo}{true}}
+\DeclareOption{accepted}{\setboolean{accepted}{true}}
 \DeclareOption{submitted}{\setboolean{submitted}{true}}
 \DeclareOption{intended}{\setboolean{intended}{true}}
 \DeclareOption{llncs}{\setboolean{llncs}{true}}
@@ -68,6 +70,12 @@
      \quad Time: \rcsInfoTime \quad File: \rcsInfoFile\\}}
      }\let\@evenfoot\@oddfoot}
 %
+\def\ps@acceptedfirst{\let\@mkboth\@gobbletwo\let\@oddhead\@empty\let\@evenhead\@empty
+     \def\@oddfoot{\reset@font\scriptsize
+          \vbox to\z@{\parindent=\z@\vss
+          Accepted for publication at \@conference.
+               }}\let\@evenfoot\@oddfoot}
+%
 \def\ps@submitted{\let\@mkboth\@gobbletwo
      \def\@oddfoot{\reset@font\scriptsize
           \vbox to\z@{\parindent=\z@\vss
@@ -80,7 +88,6 @@
           Submitted to \@conference, please do \emph{not} distribute.\\
                \copyright\ \number\year, \@author
                }}\let\@evenfoot\@oddfoot}
-%
 %
 \def\ps@intended{\let\@mkboth\@gobbletwo
      \def\@oddfoot{\reset@font\scriptsize
@@ -130,12 +137,20 @@
 %\def\maketitle{\old@mkttl\thispagestyle{svninfofirst}}%
 }{}
 % </svninfo>
-% <submitted>
+% <accepted>
+\ifthenelse{\boolean{accepted}}{%
+\let\old@mkttl=\maketitle%
+\def\maketitle{\old@mkttl\thispagestyle{acceptedfirst}}%
+}{}
+% </accepted>
+% <intended>
 \ifthenelse{\boolean{intended}}{%
 % \pagestyle{intended}%
 \let\old@mkttl=\maketitle%
 \def\maketitle{\old@mkttl\thispagestyle{intendedfirst}}%
 }{}
+% </intended>
+% <submitted>
 \ifthenelse{\boolean{submitted}}{%
 \pagestyle{submitted}%
 \let\old@mkttl=\maketitle%
