@@ -53,6 +53,13 @@ The DOI (Digital Object Identifier) can be found at the bottom of the first page
 
 This package uses `https://doi.org` as `http://dx.doi.org` [is deprecated](https://www.doi.org/factsheets/DOIIdentifierSpecs.html).
 
+
+## Authors
+Main author: [Achim D. Brucker](http://www.brucker.ch/)
+
+### Contributors
+* Oliver Kopp
+
 ## License
 This project is dual-licensed under a 2-clause BSD-style license and/or 
 the LPPL version 1 or any later version. 
