@@ -58,7 +58,7 @@ This package uses `https://doi.org` as `http://dx.doi.org` [is deprecated](https
 Main author: [Achim D. Brucker](http://www.brucker.ch/)
 
 ### Contributors
-* Oliver Kopp
+* [Oliver Kopp](https://github.com/koppor/)
 
 ## License
 This project is dual-licensed under a 2-clause BSD-style license and/or 
