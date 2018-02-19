@@ -1,3 +1,9 @@
+# Springer's llncs style should not be part of the repository, 
+# but is, of course, required to compile the example. It can be 
+# obtained from 
+# http://www.springer.com/gb/computer-science/lncs/conference-proceedings-guidelines
+llncs.cls
+
 # ---> TeX
 ## Core latex/pdflatex auxiliary files:
 *.aux
