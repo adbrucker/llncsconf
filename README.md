@@ -62,4 +62,4 @@ Main author: [Achim D. Brucker](http://www.brucker.ch/)
 
 ## License
 This project is dual-licensed under a 2-clause BSD-style license and/or 
-the LPPL version 1 or any later version. 
+the LPPL version 1.3c or (at your opinion) any later version. 
