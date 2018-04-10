@@ -1,12 +1,15 @@
 # llncsconf
+
 LaTeX package extending Springer's llncs class.
 
 ## Installation 
+
 Copy `llncsconf.sty` in a directory that is searched by LaTeX
 (e.g,. either your `texmf` tree or the local directory with your main
 LaTeX file.
 
 ## Usage
+
 In a LaTeX file that uses Springer's `llncs` class, just add
 ```tex
     \usepackage{llncsconf}
@@ -44,22 +47,33 @@ Moreover, the package requires two commands to be executed:
   i.e., the DOI of the final publication available at Springer's web site.
 
 ## Self-Archiving
+
 Sprinter states in his [Springer's Consent to Publish v3](http://resource-cms.springer.com/springer-cms/rest/v1/content/731196/data/v3):
 
-> Author may only post his/her own version, provided acknowledgment is given to the original source of publication and a link is inserted to the published article on Springer’s website.
-> The link must be provided by inserting the DOI number of the article in the following sentence:
-> "The final publication is available at Springer via `http://dx.doi.org/[insert DOI]`".
-The DOI (Digital Object Identifier) can be found at the bottom of the first page of the published paper.
+> Author may only post his/her own version, provided acknowledgment is given 
+> to the original source of publication and a link is inserted to the published
+> article on Springer’s website. The link must be provided by inserting the DOI
+> number of the article in the following sentence:
+> "The final publication is available at Springer via 
+> `http://dx.doi.org/[insert DOI]`".
+The DOI (Digital Object Identifier) can be found at the bottom of the first page
+of the published paper.
 
-This package uses `https://doi.org` as `http://dx.doi.org` [is deprecated](https://www.doi.org/factsheets/DOIIdentifierSpecs.html).
+This package uses `https://doi.org` as `http://dx.doi.org` 
+[is deprecated](https://www.doi.org/factsheets/DOIIdentifierSpecs.html).
 
 
 ## Authors
+
 Main author: [Achim D. Brucker](http://www.brucker.ch/)
 
 ### Contributors
+
 * [Oliver Kopp](https://github.com/koppor/)
 
 ## License
+
 This project is dual-licensed under a 2-clause BSD-style license and/or 
 the LPPL version 1.3c or (at your opinion) any later version. 
+
+SPDX-License-Identifier: LPPL-1.3c+ OR BSD-2-Clause
