@@ -45,7 +45,11 @@
 
 % <crop>
 \ifthenelse{\boolean{crop}}{%
-\pdfpagesattr{/CropBox [92 70 523 736]}% LNCS page: 152x235 mm
+  \@ifclasswith{llncs}{a4paper}{%
+    \pdfpagesattr{/CropBox [92 114 523 780]}%
+  }{%
+    \pdfpagesattr{/CropBox [92 65 523 731]}% LNCS page: 152x235 mm
+  }%
 }{}
 % </crop>
 \def\ps@svninfofirst{\let\@mkboth\@gobbletwo\let\@oddhead\@empty\let\@evenhead\@empty
