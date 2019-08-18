@@ -10,5 +10,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Initial version uploaded to CTAN.
 
-[Unreleased]: https://github.com/adbrucker/llncsconf/compare/v1.0.0...HEAD
-[1.1.0]: https://github.com/adbrucker/llncsconf/compare/v1.0.0...v1.1.0
+[Unreleased]: https://git.logicalhacking.com/adbrucker/llncsconf/compare/v1.0.0...HEAD
+[1.1.0]: https://git.logicalhacking.com/adbrucker/llncsconf/compare/v1.0.0...v1.1.0
