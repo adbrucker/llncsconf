@@ -45,13 +45,27 @@
 
 % <crop>
 \ifthenelse{\boolean{crop}}{%
+\ExplSyntaxOn
+\@ifundefined{pdfmanagement_add:nnn}{%
   \@ifclasswith{llncs}{a4paper}{%
     \pdfpagesattr{/CropBox [92 114 523 780]}%
   }{%
     \pdfpagesattr{/CropBox [92 65 523 731]}% LNCS page: 152x235 mm
   }%
+}{%
+  \@ifclasswith{llncs}{a4paper}{%
+    \pdfmanagement_add:nnn {Pages}{CropBox}{[92~114~523~780]}   
+  }{%
+    \pdfmanagement_add:nnn {Pages}{CropBox}{[92~62~523~731]}   
+  }%
+}%
+\ExplSyntaxOff
 }{}
 % </crop>
+
+
+
+
 \def\ps@svninfofirst{\let\@mkboth\@gobbletwo\let\@oddhead\@empty\let\@evenhead\@empty
      \def\@oddfoot{\reset@font\scriptsize
      \vbox to\z@{\parindent=\z@\vss

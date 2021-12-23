@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+#### Changed
+
+- If available, use pdfmanagement instead of \pdfpagesattr
+
 ## 1.1.0 - 2020-05-10
 
 ### Added
