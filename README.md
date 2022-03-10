@@ -1,12 +1,14 @@
 # llncsconf
 
-LaTeX package extending Springer's llncs class.
+LaTeX package extending [Springer's llncs class](https://ctan.org/pkg/llncs).
 
 ## Installation
 
-Copy `llncsconf.sty` in a directory that is searched by LaTeX
+This package is [available on CTAN](https://www.ctan.org/pkg/llncsconf)
+and thus included TeXLive and MiKTeX. In case the distributed version
+is too old, copy `llncsconf.sty` in a directory that is searched by LaTeX
 (e.g,. either your `texmf` tree or the local directory with your main
-LaTeX file.
+LaTeX file).
 
 ## Usage
 
