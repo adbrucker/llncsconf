@@ -34,9 +34,11 @@ The package supports the following general options:
 To indicate the state of the paper, the package supports following choices:
 
 * `intended`: adds a *submitted to ... please to no distribute* note
-  to the first page.
+  to each page. The default copyright note can be overwritten by 
+  redefining the command `\copyrightnote`.
 * `submitted`: adds a *submitted to ... please to no distribute* note
-  to the first page.
+  to each page. The default copyright note can be overwritten by 
+  redefining the command `\copyrightnote`.
 * `accepted`: adds a *accepted for publication at ...* note
   to the first page. This is useful for the phase where the camera
   ready version is prepared, but the publisher did not yet publish it.

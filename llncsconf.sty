@@ -42,6 +42,8 @@
 \def\llncs#1#2{\gdef\@llncs{#1}\ifthenelse{\boolean{llncs} \OR \boolean{proceedings}}{\setcounter{page}{#2}}{}}
 \gdef\@llncsdoi{UNKNOWN}
 \def\llncsdoi#1{\gdef\@llncsdoi{#1}{}}
+               
+\newcommand{\copyrightnote}{\copyright\ \number\year, \toc@uthor}
 
 % <crop>
 \ifthenelse{\boolean{crop}}{%
@@ -102,24 +104,26 @@
      \def\@oddfoot{\reset@font\scriptsize
           \vbox to\z@{\parindent=\z@\vss
           Submitted to \@conference, please do \emph{not} distribute.\\
-               \copyright\ \number\year, \toc@uthor
-               }}\let\@evenfoot\@oddfoot}
+          \copyrightnote%
+          }}\let\@evenfoot\@oddfoot}
 \def\ps@submittedfirst{\let\@mkboth\@gobbletwo\let\@oddhead\@empty\let\@evenhead\@empty
      \def\@oddfoot{\reset@font\scriptsize
           \vbox to\z@{\parindent=\z@\vss
           Submitted to \@conference, please do \emph{not} distribute.\\
-               \copyright\ \number\year, \toc@uthor
+          \copyrightnote%
                }}\let\@evenfoot\@oddfoot}
 %
 \def\ps@intended{\let\@mkboth\@gobbletwo
      \def\@oddfoot{\reset@font\scriptsize
           \vbox to\z@{\parindent=\z@\vss
-          Intended for submission to \@conference, please do \emph{not} distribute.
+          Intended for submission to \@conference, please do \emph{not} distribute.\\
+          \copyrightnote%
                }}\let\@evenfoot\@oddfoot}
 \def\ps@intendedfirst{\let\@mkboth\@gobbletwo\let\@oddhead\@empty\let\@evenhead\@empty
      \def\@oddfoot{\reset@font\scriptsize
           \vbox to\z@{\parindent=\z@\vss
-          Intended for submission to \@conference, please do \emph{not} distribute.
+          Intended for submission to \@conference, please do \emph{not} distribute.\\
+          \copyrightnote%
                }}\let\@evenfoot\@oddfoot}
 %
 \def\ps@llncs{\let\@mkboth\@gobbletwo\let\@oddhead\@empty\let\@evenhead\@empty
@@ -167,7 +171,7 @@
 % </accepted>
 % <intended>
 \ifthenelse{\boolean{intended}}{%
-% \pagestyle{intended}%
+\pagestyle{intended}%
 \let\old@mkttl=\maketitle%
 \def\maketitle{\old@mkttl\thispagestyle{intendedfirst}}%
 }{}
