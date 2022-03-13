@@ -1,50 +1,70 @@
 # llncsconf
 
-LaTeX package extending Springer's llncs class.
+LaTeX package extending [Springer's llncs class](https://ctan.org/pkg/llncs).
 
-## Installation 
+## Installation
 
-Copy `llncsconf.sty` in a directory that is searched by LaTeX
+This package is [available on CTAN](https://www.ctan.org/pkg/llncsconf)
+and thus included TeXLive and MiKTeX. In case the distributed version
+is too old, copy `llncsconf.sty` in a directory that is searched by LaTeX
 (e.g,. either your `texmf` tree or the local directory with your main
-LaTeX file.
+LaTeX file).
 
 ## Usage
 
 In a LaTeX file that uses Springer's `llncs` class, just add
+
 ```tex
     \usepackage{llncsconf}
 ```
-to use the style. The package supports the following options:
-  * `crop`: crops the page (PDF) to the page size (152x235mm) used by
-    the LNCS proceedings books (and the official PDFs offered by
-    Springer). Please ensure that you *do not* have the option
-    `a4paper` activated. Otherwise, cropping produces wrong results.
-  * `rcsinfo`: adds RCS revision information to the first page of
-    the document.
-  * `svninfo`: adds subversion/svn revision information to the
-    first page of the document.
-  * `llncs`: typesets a copy of Springer's copyright note. This should
-    satisfy Springer's requirements for self-archiving.
-    You need to supply the DOI using `\llncsdoi{DOI}`.
-  * `proceedings`: typesets a note in which proceedings the paper was
-    published (similar to `llncs` without Springer's availability note).
-  * `accepted`: adds a *accepted for publication at ...* note
-    to the first page. This is useful for the phase where the camera
-    ready version is prepared, but the publisher did not yet publish it.
-  * `submitted`: adds a *submitted to ... please to no distribute* note
-    to the first page.
-  * `intended`: adds a *submitted to ... please to no distribute* note
-    to the first page.
 
-Moreover, the package requires two commands to be executed:
+to use the style.
+
+The package supports the following general options:
+
+* `crop`: crops the page (PDF) to the page size (152x235mm) used by
+  the LNCS proceedings books (and the official PDFs offered by
+  Springer). Please ensure that you *do not* have the option
+  `a4paper` activated. Otherwise, cropping produces wrong results.
+* `rcsinfo`: adds RCS revision information to the first page of
+  the document.
+* `svninfo`: adds subversion/svn revision information to the
+  first page of the document.
+
+To indicate the state of the paper, the package supports following choices:
+
+* `intended`: adds a *submitted to ... please to no distribute* note
+  to the first page.
+* `submitted`: adds a *submitted to ... please to no distribute* note
+  to the first page.
+* `accepted`: adds a *accepted for publication at ...* note
+  to the first page. This is useful for the phase where the camera
+  ready version is prepared, but the publisher did not yet publish it.
+* `proceedings`: typesets a note in which proceedings the paper was
+  published (similar to `llncs` without Springer's availability note).
+* `llncs`: typesets a copy of Springer's copyright note. This should
+  satisfy Springer's requirements for self-archiving.
+  You need to supply the DOI using `\llncsdoi{DOI}`.
+
+To display the state information properly, additional commands are required:
+
 * `\conference{name of the conference}` which takes one argument,
   i.e., the name of the conference. This is used when one of the
-  options `submitted` or `intended` is used for loading the package.
+  options `intended`, `submitted`, or `accepted` is used for loading
+  the package.
 * `\llncs{book editors and title}{start page}` which takes two
   arguments: first the information about the book (e.g., editors,
   title) and, second, the start page of the chapter (contribution).
 * `\llncsdoi{DOI}` which takes one argument,
   i.e., the DOI of the final publication available at Springer's web site.
+
+| State | `\conference` | `\llncs` | `\llncsdoi` |
+| -- | -- | -- | -- |
+| intended | yes | no | no |
+| submitted | yes | no | no |
+| accepted | yes | no | no |
+| proceedings | no | yes | no |
+| llncs | no | yes | yes |
 
 ## Self-Archiving
 
@@ -61,7 +81,6 @@ of the published paper.
 
 This package uses `https://doi.org` as `http://dx.doi.org` 
 [is deprecated](https://www.doi.org/factsheets/DOIIdentifierSpecs.html).
-
 
 ## Authors
 
