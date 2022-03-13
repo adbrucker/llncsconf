@@ -70,7 +70,7 @@ To display the state information properly, additional commands are required:
 
 ## Self-Archiving
 
-Sprinter states in his [Springer's Consent to Publish v3](https://resource-cms.springernature.com/springer-cms/rest/v1/content/15433008/data/Contract_Book_Contributor_Consent_to_Publish_LNCS_SIPAut):
+Springer states in his [Springer's Consent to Publish v3](https://resource-cms.springernature.com/springer-cms/rest/v1/content/15433008/data/Contract_Book_Contributor_Consent_to_Publish_LNCS_SIPAut):
 
 > Author may only post his/her own version, provided acknowledgment is given 
 > to the original source of publication and a link is inserted to the published
