@@ -1,0 +1,18 @@
+pipeline:
+  build:
+    image: docker.io/texlive/texlive
+    commands:
+    - pdflatex "\PassOptionsToPackage{$STATUS,$CROP}{llncsconf}\input{example.tex}" 
+    - pdflatex "\PassOptionsToPackage{$STATUS,$CROP}{llncsconf}\input{example.tex}" 
+  
+matrix:
+  CROP:
+    - crop
+    - " "
+  STATUS:
+    - intended
+    - submitted
+    - accepted
+    - proceedings
+    - llncs
+
