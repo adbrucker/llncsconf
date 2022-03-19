@@ -7,11 +7,20 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-#### Changed
+### Added
 
-- If available, use pdfmanagement instead of \pdfpagesattr
+- The default copyright note can be overwritten by redefining the command `\copyrightnote`.
 
-## 1.1.0 - 2020-05-10
+### Changed
+
+- If available, use pdfmanagement instead of `\pdfpagesattr` [[#12](https://github.com/adbrucker/llncsconf/issues/12)]
+- If `intended` is used, the note is put on each page [[#16](https://github.com/adbrucker/llncsconf/issues/16)]
+
+### Fixed
+
+- Reduzed size of author statement in footnote [[#15](https://github.com/adbrucker/llncsconf/issues/15)]
+
+## [1.1.0] - 2020-05-10
 
 ### Added
 
