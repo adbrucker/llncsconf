@@ -8,7 +8,10 @@ pipeline:
     - pdflatex "\PassOptionsToPackage{$STATUS,$CROP}{llncsconf}\input{example.tex}" 
     - cp example.pdf $ARTIFACT_DIR/example_${STATUS}_${CROP}.pdf
     - find $ARTIFACT_DIR
-    - sleep 10
+    - cd $ARTIFACT_DIR
+    - cd ..
+    - ln -s * latest
+    - sleep 5
   deploy:
     image: docker.io/drillster/drone-rsync
     settings:
