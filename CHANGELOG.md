@@ -9,6 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Added
 
+### Changed
+
+## [1.2.0] - 2022-04-24
+
+### Added
+
 - The default copyright note can be overwritten by redefining the command `\copyrightnote`.
 
 ### Changed
@@ -18,7 +24,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ### Fixed
 
-- Reduzed size of author statement in footnote [[#15](https://github.com/adbrucker/llncsconf/issues/15)]
+- Reduced size of author statement in footnote [[#15](https://github.com/adbrucker/llncsconf/issues/15)]
 
 ## [1.1.0] - 2020-05-10
 
