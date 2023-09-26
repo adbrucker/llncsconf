@@ -15,7 +15,7 @@ LaTeX file).
 In a LaTeX file that uses Springer's `llncs` class, just add
 
 ```tex
-    \usepackage{llncsconf}
+\usepackage{llncsconf}
 ```
 
 to use the style.
@@ -33,13 +33,13 @@ The package supports the following general options:
 
 To indicate the state of the paper, the package supports following choices:
 
-* `intended`: adds a *submitted to ... please to no distribute* note
+* `intended`: adds a *Intended for submission to ... please to no distribute* note
   to each page. The default copyright note can be overwritten by 
   redefining the command `\copyrightnote`.
-* `submitted`: adds a *submitted to ... please to no distribute* note
+* `submitted`: adds a *Submitted to ... please to no distribute* note
   to each page. The default copyright note can be overwritten by 
   redefining the command `\copyrightnote`.
-* `accepted`: adds a *accepted for publication at ...* note
+* `accepted`: adds a *Accepted for publication at ...* note
   to the first page. This is useful for the phase where the camera
   ready version is prepared, but the publisher did not yet publish it.
 * `proceedings`: typesets a note in which proceedings the paper was
@@ -78,11 +78,23 @@ Springer states in his [Springer's Consent to Publish v3](https://resource-cms.s
 > number of the article in the following sentence:
 > "The final publication is available at Springer via 
 > `http://dx.doi.org/[insert DOI]`".
+
 The DOI (Digital Object Identifier) can be found at the bottom of the first page
 of the published paper.
 
 This package uses `https://doi.org` as `http://dx.doi.org` 
 [is deprecated](https://www.doi.org/factsheets/DOIIdentifierSpecs.html).
+
+## Alternative Packages
+
+This package is optimized for the Springer LNCS.
+For watermarking the final versions of IEEE, ACM, and other publishers, please check the [authorarchive](https://ctan.org/pkg/authorarchive) package.
+
+In case you intend to watermark draft versions for IEEE and others, try the [draftwatermark](https://ctan.org/pkg/draftwatermark) package with following options:
+
+```latex
+\usepackage[text={submitted to ... please to no distribute},angle=0,vpos=10mm,fontsize=8pt,color=red]{draftwatermark}
+```
 
 ## Authors
 
